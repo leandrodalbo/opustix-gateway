@@ -19,6 +19,6 @@ spec:
       containers:
         - name: event-gateway
           image: ghcr.io/leandrodalbo/event-gateway:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
