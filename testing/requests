@@ -1,0 +1,17 @@
+# FETCH ACCESS TOKEN FROM KEYCLOAK
+
+curl -X POST http://localhost:8080/realms/ticketera/protocol/openid-connect/token \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "grant_type=password" \
+  -d "client_id=gateway-client" \
+  -d "client_secret=OVuc9WrcAg9ITfN8XO9U5tKMPhn6E5C6" \
+  -d "username=user@mail.com" \
+  -d "password=123456"
+
+# Private Endpoint
+
+curl -i http://localhost:8081/ticketera/private/test \                                                     ✔
+  -H "Authorization: Bearer ....."
+
+# Public Endpoint
+curl -i http://localhost:8081/ticketera/public/test
