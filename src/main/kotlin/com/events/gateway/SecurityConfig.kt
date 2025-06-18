@@ -19,9 +19,9 @@ class SecurityConfig {
                     .pathMatchers("/ticketera/public/**").permitAll()
                     .anyExchange().authenticated()
             }
-            .oauth2ResourceServer  { resourceServer ->
+            .oauth2ResourceServer { resourceServer ->
                 resourceServer.jwt { jwtSpec ->
-                   jwtSpec
+                    jwtSpec
                 }
             }
             .build()

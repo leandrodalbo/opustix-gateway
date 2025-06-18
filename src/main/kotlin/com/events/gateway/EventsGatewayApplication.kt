@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class EventsGatewayApplication
 
 fun main(args: Array<String>) {
-	runApplication<EventsGatewayApplication>(*args)
+    runApplication<EventsGatewayApplication>(*args)
 }
