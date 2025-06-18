@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:32769/realms/ticketera
+  cloud:
+    gateway:
+      routes:
+        - id: events-api
+          uri: http://localhost:8082
+          predicates:
+            - Path=/ticketera/**
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.security: DEBUG
+
