@@ -2,8 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: event-gateway
-  labels:
-    app: event-gateway
+  namespace: event-gateway
 spec:
   replicas: 1
   selector:
@@ -14,11 +13,15 @@ spec:
       labels:
         app: event-gateway
     spec:
-      imagePullSecrets:
-        - name: ghcr-secret
       containers:
         - name: event-gateway
           image: ghcr.io/leandrodalbo/event-gateway:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 8080
+            - containerPort: 8081
+              hostPort: 80
+          env:
+            - name: KEYCLOAK_REALM_URI
+              value: http://keycloak.event-auth.svc.cluster.local:8080/realms/ticketera
+            - name: EVENTS_API_URI
+              value: http://api:8082
