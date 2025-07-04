@@ -16,7 +16,7 @@ class SecurityConfig {
             .csrf { it.disable() }
             .authorizeExchange {
                 it
-                    .pathMatchers("/ticketera/public/**").permitAll()
+                    .pathMatchers("/api/public/**").permitAll()
                     .anyExchange().authenticated()
             }
             .oauth2ResourceServer { resourceServer ->

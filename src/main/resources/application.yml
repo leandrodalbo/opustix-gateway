@@ -10,10 +10,27 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: events-api
-          uri: ${EVENTS_API_URI:http://localhost:8082}
+        - id: keycloak-auth
+          uri: http://localhost:8080
           predicates:
-            - Path=/ticketera/**
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+
+        - id: public-ticketera-api
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/public/ticketera/**
+          filters:
+            - StripPrefix=2
+
+        - id: private-ticketera-api
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/private/ticketera/**
+          filters:
+            - StripPrefix=2
+
 
 events-gateway:
     allowed-origins:
