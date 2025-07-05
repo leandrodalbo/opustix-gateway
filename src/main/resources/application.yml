@@ -14,8 +14,7 @@ spring:
           uri: ${KEYCLOAK_URI:http://localhost:8080}
           predicates:
             - Path=/auth/**
-          filters:
-            - StripPrefix=1
+
 
         - id: public-ticketera-api
           uri: ${EVENTS_API_URI:http://localhost:8082}
