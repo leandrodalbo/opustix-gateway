@@ -16,7 +16,7 @@ class SecurityConfig {
             .csrf { it.disable() }
             .authorizeExchange {
                 it
-                    .pathMatchers("/api/public/**").permitAll()
+                    .pathMatchers("/api/public/**", "/auth/**").permitAll()
                     .anyExchange().authenticated()
             }
             .oauth2ResourceServer { resourceServer ->
