@@ -11,21 +11,21 @@ spring:
     gateway:
       routes:
         - id: keycloak-auth
-          uri: http://localhost:8080
+          uri: ${KEYCLOAK_URI:http://localhost:8080}
           predicates:
             - Path=/auth/**
           filters:
             - StripPrefix=1
 
         - id: public-ticketera-api
-          uri: http://localhost:8082
+          uri: ${EVENTS_API_URI:http://localhost:8082}
           predicates:
             - Path=/api/public/ticketera/**
           filters:
             - StripPrefix=2
 
         - id: private-ticketera-api
-          uri: http://localhost:8082
+          uri: ${EVENTS_API_URI:http://localhost:8082}
           predicates:
             - Path=/api/private/ticketera/**
           filters:
@@ -34,7 +34,7 @@ spring:
 
 events-gateway:
     allowed-origins:
-      - http://localhost:5173
+      - ${ALLOWED_ORIGINS:http://localhost:5173}
 
 #logging:
 #  level:
