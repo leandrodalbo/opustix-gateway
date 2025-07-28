@@ -34,7 +34,7 @@ events-gateway:
     - ${ALLOWED_ORIGIN_3}
     - ${ALLOWED_ORIGIN_4}
     - ${ALLOWED_ORIGIN_5}
-    - ${ALLOWED_ORIGIN_6:}
+    - ${ALLOWED_ORIGIN_6}
 
 #logging:
 #  level:
