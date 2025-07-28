@@ -13,7 +13,7 @@ class CorsConfig(private val gatewayProps: GatewayProps) {
     fun corsFilter(): CorsWebFilter {
         val corsConfig = CorsConfiguration()
         corsConfig.allowedOrigins = gatewayProps.allowedOrigins
-        corsConfig.allowedMethods = listOf("GET", "POST", "PUT", "DELETE")
+        corsConfig.allowedMethods = listOf("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH")
         corsConfig.allowedHeaders = listOf("*")
         corsConfig.allowCredentials = true
 
