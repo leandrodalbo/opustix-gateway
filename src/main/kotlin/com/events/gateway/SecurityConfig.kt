@@ -13,6 +13,7 @@ class SecurityConfig {
     @Bean
     fun springSecurityFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain {
         return http
+            .cors { it.disable() }
             .csrf { it.disable() }
             .authorizeExchange {
                 it
